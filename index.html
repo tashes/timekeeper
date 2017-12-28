@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie-edge"/>
+  <title>Time Keeper</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="https://gitcdn.link/repo/Chalarangelo/mini.css/master/dist/mini-default.min.css"/>
+  <link rel="manifest" href="manifest.json"/>
+</head>
+<body>
+  <header>
+    <h1>Time Keeper</h1>
+  </header>
+  <main>
+    <div id="time">00:00:00</div>
+    <ul id="list"></ul>
+  </main>
+  <footer>
+    <div id="datastore"></div>
+    <div id="buttons">
+      <button id="buttons_add">Add New Category</button>
+      <button id="buttons_remove">Remove Category</button>
+      <button id="buttons_download">Download Data</button>
+    </div>
+  </footer>
+  <script src="js/moment.js"></script>
+  <script src="js/moment-duration-format.js"></script>
+  <script src="js/localforage.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

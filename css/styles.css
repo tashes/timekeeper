@@ -1,0 +1,43 @@
+header
+{
+  padding:16px !important;
+}
+#time
+{
+  font-size:40px;
+  padding:32px 0;
+  text-align:center;
+}
+#list
+{
+  padding:0px 16px;
+  list-style: none;
+}
+#list > li
+{
+  font-size:0px;
+  padding:8px;
+  border-bottom:1px solid rgb(200,200,200);
+}
+#list > li:last-child
+{
+  border-bottom: none;
+}
+#list > li > *
+{
+  font-size: 16px;
+}
+#list > li.selected
+{
+  background:rgba(0,0,0,0.12);
+}
+#list > li > span
+{
+  padding:0 16px;
+  line-height: 32px;
+  vertical-align:top;
+}
+#datastore
+{
+  text-align:center;
+}
