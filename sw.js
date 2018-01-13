@@ -12,7 +12,7 @@ var static_assets = [
 
 async function cahceManager (req) {
   var cachedResponse = await caches.match(req);
-  return await fetch(req) || cachedResponse;
+  return cachedResponse || await fetch(req);
 };
 
 self.addEventListener('install', async e => {

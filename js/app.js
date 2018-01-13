@@ -4,6 +4,52 @@ var CURRENT;
 // BG: #8bc34a
 // FG: #40423e
 
+async function drawChart () {
+  var ctx = document.getElementById('chart').getContext('2d');
+  var hist = await localforage.getItem('history')
+  hist = hist.map((i) => {
+    var diff = moment.duration(moment(i.to).diff(moment(i.from)));
+    return {
+      name: i.name,
+      duration: diff
+    }
+  }).reduce((ass, i) => {
+    if (Object.keys(ass).indexOf(i.name) > -1) {
+      ass[i.name] += i.duration._milliseconds;
+    }
+    else {
+      ass[i.name] = i.duration._milliseconds;
+    }
+    return ass;
+  }, {});
+  var data = {
+    datasets: [{
+      data: Object.keys(hist).map(key => hist[key])
+    }],
+    labels: Object.keys(hist)
+  };
+  var options = {
+    legend: {
+      display: false
+    },
+    tooltips: {
+      callbacks: {
+        label: function (i, d) {
+          var label = d.labels[i.index];
+          var data = moment.duration(d.datasets[0].data[i.index]);
+          return label + ": " + data.format("hh:mm:ss", {
+            trim: false
+          });
+        }
+      }
+    }
+  };
+  var chart = new Chart(ctx, {
+    type: 'doughnut',
+    data: data,
+    options: options
+  });
+};
 async function addHistory (name, from, to) {
   var history = await localforage.getItem('history');
   if (history === null) history = [];
@@ -78,6 +124,9 @@ window.addEventListener('load', async () => {
       trim: false
     });
   }, 1000);
+
+  // set up chart
+  drawChart();
 
   // set up listeners
   document.querySelector('#buttons_add').addEventListener('click', function () {

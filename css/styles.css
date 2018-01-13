@@ -2,6 +2,10 @@ header
 {
   padding:16px !important;
 }
+#chart
+{
+  padding:32px 0;
+}
 #time
 {
   font-size:40px;
