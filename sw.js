@@ -1,4 +1,4 @@
-// VERSION: 2
+// VERSION: 4
 
 var static_assets = [
   './',
