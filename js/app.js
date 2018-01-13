@@ -171,7 +171,7 @@ window.addEventListener('load', async () => {
   });
   document.querySelector('#buttons_rand').addEventListener('click', async function () {
     var i = Math.floor(CATEGORIES.length * Math.random());
-    alert(CATEGORIES[i]);
+    alert(CATEGORIES[i].name);
   });
 
   // Setup service worker
