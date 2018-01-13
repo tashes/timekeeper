@@ -169,6 +169,10 @@ window.addEventListener('load', async () => {
       alert("No History Found.");
     }
   });
+  document.querySelector('#buttons_rand').addEventListener('click', async function () {
+    var i = Math.floor(CATEGORIES.length * Math.random());
+    alert(CATEGORIES[i]);
+  });
 
   // Setup service worker
   if ('serviceWorker' in navigator) {
